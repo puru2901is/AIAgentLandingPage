@@ -75,16 +75,18 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Map your form fields to Google Form fields
             // You'll need to replace these entry.X values with the actual ones from your Google Form
+
+            //https://docs.google.com/forms/d/e/1FAIpQLSdc8dDHk1FbXCqRWmXXzQWAbXGMl70IhhpvoawcV80_ptDUdg/viewform?usp=pp_url&entry.1544920856=name&entry.5055384=company&entry.1097234795=email&entry.229693664=phone&entry.1535001332=message&entry.1132867608=waitlist
             const googleFormData = new FormData();
-            googleFormData.append('entry.123456789', formDataObj.name); // Name field
-            googleFormData.append('entry.234567890', formDataObj.company); // Company field
-            googleFormData.append('entry.345678901', formDataObj.email); // Email field
-            googleFormData.append('entry.456789012', formDataObj.phone || 'Not provided'); // Phone field
-            googleFormData.append('entry.567890123', formDataObj.message || 'No message'); // Message field
-            googleFormData.append('entry.678901234', formDataObj.formType || 'General inquiry'); // Form type
+            googleFormData.append('entry.1544920856', formDataObj.name); // Name field
+            googleFormData.append('entry.5055384', formDataObj.company); // Company field
+            googleFormData.append('entry.1097234795', formDataObj.email); // Email field
+            googleFormData.append('entry.229693664', formDataObj.phone || 'Not provided'); // Phone field
+            googleFormData.append('entry.1535001332', formDataObj.message || 'No message'); // Message field
+            googleFormData.append('entry.1132867608', formDataObj.formType || 'General inquiry'); // Form type
             
             // Replace with your actual Google Form URL
-            const googleFormUrl = 'https://docs.google.com/forms/d/e/YOUR_FORM_ID/formResponse';
+            const googleFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSdc8dDHk1FbXCqRWmXXzQWAbXGMl70IhhpvoawcV80_ptDUdg/formResponse';
             
             // Use an iframe to submit the form (this helps bypass CORS restrictions)
             const iframe = document.createElement('iframe');
