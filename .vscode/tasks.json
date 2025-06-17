@@ -1,0 +1,25 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Serve Landing Page (npx)",
+            "type": "shell",
+            "command": "npx",
+            "args": ["serve"],
+            "isBackground": true,
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "Serve Landing Page (Python)",
+            "type": "shell",
+            "command": "python3",
+            "args": ["-m", "http.server", "8000"],
+            "isBackground": true,
+            "problemMatcher": []
+        }
+    ]
+}

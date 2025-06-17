@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="400" viewBox="0 0 500 400">
+  <style>
+    .st0{fill:#F0F5FF;}
+    .st1{fill:#0056B3;}
+    .st2{fill:#34B1EB;}
+    .st3{fill:#FFFFFF;}
+    .st4{fill:#FF6B00;}
+    .st5{fill:#18283B;}
+    .st6{fill:none;stroke:#0056B3;stroke-width:2;stroke-miterlimit:10;}
+  </style>
+  
+  <!-- Background -->
+  <rect class="st0" width="500" height="400" rx="20" ry="20"/>
+  
+  <!-- Aircraft Outline -->
+  <path class="st1" d="M400,200 L350,180 L330,190 L320,200 L310,200 L300,195 L290,190 L250,180 L100,170 L90,160 L80,160 L70,170 L100,180 L90,200 L100,220 L70,230 L80,240 L90,240 L100,230 L250,220 L290,210 L300,205 L310,200 L320,200 L330,210 L350,220 L400,200 Z"/>
+  
+  <!-- Wings -->
+  <path class="st2" d="M250,180 L200,120 L180,110 L160,105 L140,105 L120,110 L140,120 L160,125 L180,125 L200,130 L240,180 Z"/>
+  <path class="st2" d="M250,220 L200,280 L180,290 L160,295 L140,295 L120,290 L140,280 L160,275 L180,275 L200,270 L240,220 Z"/>
+  
+  <!-- Document with Search -->
+  <rect class="st3" x="100" y="100" width="120" height="160" rx="5" ry="5" stroke="#333" stroke-width="2"/>
+  <line class="st6" x1="120" y1="130" x2="200" y2="130"/>
+  <line class="st6" x1="120" y1="150" x2="200" y2="150"/>
+  <line class="st6" x1="120" y1="170" x2="180" y2="170"/>
+  <line class="st6" x1="120" y1="190" x2="200" y2="190"/>
+  <line class="st6" x1="120" y1="210" x2="160" y2="210"/>
+  
+  <!-- Magnifying Glass -->
+  <circle class="st3" cx="320" cy="140" r="40" stroke="#333" stroke-width="2"/>
+  <circle class="st2" cx="320" cy="140" r="35" fill-opacity="0.3"/>
+  <line stroke="#333" stroke-width="4" x1="350" y1="170" x2="370" y2="190"/>
+  
+  <!-- AI Brain Icon -->
+  <circle class="st4" cx="380" cy="100" r="30"/>
+  <path class="st3" d="M380,85 C375,85 370,87 367,90 C364,93 362,98 362,103 C362,108 364,113 367,116 C370,119 375,121 380,121 C385,121 390,119 393,116 C396,113 398,108 398,103 C398,98 396,93 393,90 C390,87 385,85 380,85 Z"/>
+  <path class="st5" d="M375,95 L385,95 M375,103 L385,103 M375,111 L385,111"/>
+  
+  <!-- Connection Lines -->
+  <line class="st6" x1="220" y1="180" x2="280" y2="140" stroke-dasharray="5,5"/>
+  <line class="st6" x1="320" y1="140" x2="350" y2="100" stroke-dasharray="5,5"/>
+  
+  <!-- Text Bubble -->
+  <path class="st3" d="M400,260 C400,249 389,240 375,240 L325,240 C311,240 300,249 300,260 L300,280 C300,291 311,300 325,300 L350,300 L360,320 L370,300 L375,300 C389,300 400,291 400,280 Z" stroke="#333" stroke-width="2"/>
+  <circle class="st2" cx="325" cy="270" r="5"/>
+  <circle class="st2" cx="350" cy="270" r="5"/>
+  <circle class="st2" cx="375" cy="270" r="5"/>
+</svg>
