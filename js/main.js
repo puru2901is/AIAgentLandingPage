@@ -55,13 +55,10 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Handle form submission
+    // Handle form submission with Google Sheets integration
     if (form) {
         form.addEventListener('submit', function(e) {
             e.preventDefault();
-            
-            // In a real implementation, you would send the form data to a server
-            // For this example, we'll just simulate a successful submission
             
             // Get form data
             const formData = new FormData(form);
@@ -70,20 +67,68 @@ document.addEventListener('DOMContentLoaded', function() {
                 formDataObj[key] = value;
             });
             
-            console.log('Form submitted:', formDataObj);
+            // Create a loading indicator
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn.textContent;
+            submitBtn.textContent = 'Sending...';
+            submitBtn.disabled = true;
             
-            // Show success message
-            form.innerHTML = '<div class="success-message"><h3>Thank you!</h3><p>We\'ve received your submission and will be in touch soon.</p></div>';
+            // Map your form fields to Google Form fields
+            // You'll need to replace these entry.X values with the actual ones from your Google Form
+            const googleFormData = new FormData();
+            googleFormData.append('entry.123456789', formDataObj.name); // Name field
+            googleFormData.append('entry.234567890', formDataObj.company); // Company field
+            googleFormData.append('entry.345678901', formDataObj.email); // Email field
+            googleFormData.append('entry.456789012', formDataObj.phone || 'Not provided'); // Phone field
+            googleFormData.append('entry.567890123', formDataObj.message || 'No message'); // Message field
+            googleFormData.append('entry.678901234', formDataObj.formType || 'General inquiry'); // Form type
             
-            // Reset form after 5 seconds and hide it
+            // Replace with your actual Google Form URL
+            const googleFormUrl = 'https://docs.google.com/forms/d/e/YOUR_FORM_ID/formResponse';
+            
+            // Use an iframe to submit the form (this helps bypass CORS restrictions)
+            const iframe = document.createElement('iframe');
+            iframe.name = 'hidden_iframe';
+            iframe.style.display = 'none';
+            document.body.appendChild(iframe);
+            
+            // Create a form element to submit through the iframe
+            const hiddenForm = document.createElement('form');
+            hiddenForm.method = 'POST';
+            hiddenForm.action = googleFormUrl;
+            hiddenForm.target = 'hidden_iframe';
+            
+            // Add all Google Form fields to the hidden form
+            googleFormData.forEach((value, key) => {
+                const input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = key;
+                input.value = value;
+                hiddenForm.appendChild(input);
+            });
+            
+            document.body.appendChild(hiddenForm);
+            
+            // Submit the hidden form
+            hiddenForm.submit();
+            
+            // Show success message after a short delay (gives time for the iframe to load)
             setTimeout(() => {
-                // Reset the form
-                form.reset();
-                contactForm.style.display = 'none';
+                // Remove the hidden form and iframe
+                document.body.removeChild(hiddenForm);
+                document.body.removeChild(iframe);
                 
-                // Recreate the form (this is a simple approach, in production you might want to clone the original form)
-                location.reload();
-            }, 5000);
+                // Show success message
+                form.innerHTML = '<div class="success-message"><h3>Thank you!</h3><p>We\'ve received your submission and will be in touch soon.</p></div>';
+                
+                // Reset form after 5 seconds and hide it
+                setTimeout(() => {
+                    contactForm.style.display = 'none';
+                    
+                    // Recreate the form (reload page to reset the form)
+                    location.reload();
+                }, 5000);
+            }, 1000);
         });
     }
     
